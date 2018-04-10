@@ -1,0 +1,140 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+
+html
+{
+    background: linear-gradient(#FFFFDD,#FFFF88);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    min-height: 100%;
+}
+
+body
+{
+    width: 100%;
+    min-height: 100%;
+    padding-top: 80px;
+}
+
+#Background
+{
+    position: fixed;
+    background-image: url('../img/anime_background.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 0.5;
+    z-index: -10;
+}
+
+#Status
+{
+    background: radial-gradient(ellipse at center,#00ffffdd 0%,#00ffff00 80%, #ffffff00 100%);
+}
+
+div
+{
+    margin: 0px auto;
+    padding: 10px;
+}
+
+body > div
+{
+    width: 800px;
+}
+
+#Frame
+{
+    background-image: url('../img/pikachu_background.jpg');
+    min-height: 400px;
+    width: 780px;
+}
+
+#Graphic
+{
+    
+    max-height: 300px;
+}
+
+#Message
+{
+    display: inline-block;
+    font-size: 0.8rem;
+    background-color: black;
+    color: white;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+#Message:empty
+{
+    visibility: hidden;
+}
+
+.btn
+{
+    display: inline-block;
+    background: linear-gradient(#009900,#005500 10%,#009900 90%);
+    color: white;
+    width: 200px;
+    vertical-align: top;
+    padding: 10px;
+    margin: 0px;
+    /* border: 1px solid 005500;
+    box-shadow: 1px 1px 1px 2px black; */
+}
+
+.btn:hover, .btn:selected
+{
+    background: linear-gradient(#FFFFDD,#FFFF88 10%,#FFFFDD 90%);
+    color: black;
+    border: 1px solid #FFFF88;
+}
+
+.lower-left
+{
+    border-bottom-left-radius: 10px;
+}
+
+.lower-right
+{
+    border-bottom-right-radius: 10px;
+}
+
+.lower
+{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.upper
+{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;    
+}
+
+#Restart
+{
+    visibility: none;
+}
+
+.width-800
+{
+    width: 800px;
+}
+
+span > span
+{
+    background-color: #DDDDFF;
+    margin: 5px;
+    border: 1px solid #AAAAFF;
+    box-shadow: 1px 1px 1px 2px black;
+    border-radius: 10px
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dojodachi!</title>
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#Restart").hide();
+            $("#Graphic").attr("src","img/marching_pikachus.gif");
+
+            $("#Feed").click(function(e){
+                e.preventDefault();
+                update("Feed");
+            })
+            $("#Play").click(function(e){
+                e.preventDefault();
+                update("Play");
+            })
+            $("#Work").click(function(e){
+                e.preventDefault();
+                update("Work");
+            })
+            $("#Sleep").click(function(e){
+                e.preventDefault();
+                update("Sleep");
+            })
+
+            function update(action)
+            {
+                console.log(action);
+                $.post("Interact/"+action,function(res){
+                    console.log(res);
+                    $("#Fullness").html(res.fullness);
+                    $("#Happiness").html(res.happiness);
+                    $("#Meals").html(res.meals);
+                    $("#Energy").html(res.energy);
+                    $("#Message").html(res.message);
+                    $("#Graphic").attr("src","img/"+res.graphic);
+                    if(res.win == true || res.lose == true)
+                    {
+                        $("#Action").hide();
+                        $("#Restart").show();
+                    }
+                },'json')
+            }
+        })
+    </script>
+</head>
+<body>
+
+    <div id="Background"></div>
+    <div id="Status">
+        <span>Fullness: <span id="Fullness">@ViewBag.Fullness</span></span>
+        <span>Happiness: <span id="Happiness">@ViewBag.Happiness</span></span>
+        <span>Meals: <span id="Meals">@ViewBag.Meals</span></span>
+        <span>Energy: <span id="Energy">@ViewBag.Energy</span></span>
+    </div>
+    <div id="Frame" class="upper">
+        <img id="Graphic" src="@ViewBag.Graphic" alt="Dojodachi"><br>
+        <div id="Message" class="top"></div>
+    </div>
+    <div id="Action">
+        <form method="post">
+            <button id="Feed" class="btn lower-left">Feed</button><button id="Play" class="btn">Play</button><button id="Work" class="btn">Work</button><button id="Sleep" class="btn lower-right">Sleep</button>
+        </form>
+    </div>
+    <div id="Restart">
+        <a href="Restart"><button class="btn lower width-800">Restart</button></a>
+    </div>
+
+</body>
+</html>
